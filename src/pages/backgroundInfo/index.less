@@ -1,0 +1,34 @@
+@import url('../../app.less');
+.BackgroudInfo{
+    .fullbox;
+    display: flex;
+    flex-direction: column;
+    padding-left:20vw;
+    padding-top: 5vh;
+}
+.BackgroudInfo-item-unmount{
+    margin: 4vh;
+    font-size: 2vw;
+    opacity: 0;
+}
+.BackgroudInfo-item-mount{
+    margin: 5vh;
+    font-size: 2vw;
+    animation: comeout 1s  forwards;
+    text{
+        font-size: 3vw;
+        padding-left: 1vw;
+        padding-right: 1vw;
+    }
+}
+@keyframes comeout{
+    0%{
+        opacity: 0; 
+        margin-top: -3vw;
+    }
+    100%{
+        opacity: 1; 
+        margin-top: 0;
+    }
+
+}
