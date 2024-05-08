@@ -20,10 +20,17 @@ export default function BackgroudInfo() {
     return () => clearInterval(interval);
   }, []);
   function jumpPage(){
+      let count = 0;
+      for (let i = 0; i < stat.length; i++) {
+          // 检查当前元素是否为 "unmount"，如果是则增加计数器
+          if (stat[i] === "unmount") {
+              count++;
+          }
+      }
     setStat(["mount", "mount", "mount", "mount", "mount", "mount"])
     setTimeout(() => {
-       Taro.redirectTo(   {url:'/pages/Chapter1/index'})
-    }, 1200);
+       Taro.redirectTo(   {url:'/pages/gameChapters/Chapter1packed'})
+    }, 200*count);
   }
   return (
     <View className='BackgroudInfo' onClick={debounce(jumpPage,300)}>

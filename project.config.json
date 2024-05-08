@@ -27,5 +27,10 @@
   "editorSetting": {
     "tabIndent": "insertSpaces",
     "tabSize": 2
+  },
+  "request": {
+    "domainList": [
+      "https://s2.loli.net"
+    ]
   }
 }

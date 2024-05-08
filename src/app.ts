@@ -4,11 +4,10 @@ import './app.less'
 
 
 function App({ children }: PropsWithChildren<any>) {
-  return (
+    return (
 
-      children
+        children
 
-  )
+    )
 }
-
 export default App

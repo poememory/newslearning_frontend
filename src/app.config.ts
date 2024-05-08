@@ -2,7 +2,7 @@ export default defineAppConfig({
   pages: [
     'pages/index/index',
     'pages/backgroundInfo/index',
-    'pages/Chapter1/index'
+    'pages/gameChapters/Chapter1packed'
   ],
   window: {
     backgroundTextStyle: 'light',

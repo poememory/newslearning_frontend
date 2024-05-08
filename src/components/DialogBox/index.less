@@ -25,3 +25,35 @@
     font-size: 2vw;
     text-align: center;
 }
+.Dilog_character{
+    background-size: 17vw 30vw;
+    width: 17vw;
+    height: 30vw;
+    position: absolute;
+    top: -30vw;
+    right: 0;
+}
+.teamate_character{
+    left: 0;
+    transform: scaleX(-1); /* 水平翻转 */
+    filter: brightness(0.1); /* 变暗（亮度减少） */
+}
+.click_icon{
+    width: 3vw;
+    height: 2vh;
+    position: absolute;
+    bottom: 4vh;
+    right: 2vw;
+    animation: breath 1s linear infinite;
+}
+@keyframes breath{
+    0%{
+    opacity: 1;
+    }
+    50%{
+    opacity: 0.3;
+    }
+    100%{
+    opacity: 1;
+    }
+}
