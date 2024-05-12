@@ -1,0 +1,59 @@
+.Dilogbox{
+    position: absolute;
+    bottom: 5vh;
+    left: 0;
+    width: 80vw;
+    height: 7vw;
+    padding: 2vw 10vw;
+    background-image: url("../../../assets/images/DialogBox.png");
+    background-size:  100vw 11vw;
+    animation: box_come 0.7s;
+}
+.Dilogcontentbox{
+    width: 50vw;
+    font-size: 2vw;
+}
+.DilogAvatar{
+    width: 7vw;height: 3vw;
+    padding-top: 1vw;
+    position: absolute;
+    top: -4vw;
+    background-image: url("../../../assets/images/CharacterBox.png");
+    background-size: 9vw 4vw;
+    font-size: 2vw;
+    font-style: italic;
+    font-weight: 900;
+    text-align: center;
+}
+.Dilog_character{
+    background-size: 20vw 30vw;
+    width: 20vw;
+    height: 30vw;
+    position: absolute;
+    top: -30vw;
+    right: 10vw;
+}
+.teamate_character{
+    left: 10vw;
+    transform: scaleX(-1); /* 水平翻转 */
+    filter: brightness(0); /* 变暗（亮度减少） */
+}
+.click_icon_Dilogbox{
+    position: absolute;
+    bottom: 5vh;
+    right: 10vw;
+    font-size: 2vw;
+    font-weight: bold;
+    animation: breath 1s linear infinite;
+}
+@keyframes breath{
+    0%{
+    opacity: 1;
+    }
+    50%{
+    opacity: 0.3;
+    }
+    100%{
+    opacity: 1;
+    }
+}

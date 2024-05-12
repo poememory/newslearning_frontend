@@ -17,8 +17,8 @@ interface GlobalContextType {
 const GlobalContext = createContext<GlobalContextType | undefined>(undefined);
 
 export const GlobalProvider: React.FC<PropsWithChildren<{}>> = ({ children }) => {
-    const [nickname,setnickName]=useState('')
-    const [gender,setGender]=useState('female')
+    const [nickname,setnickName]=useState('坤坤')
+    const [gender,setGender]=useState('male')
     const [money, setMoney] = useState<number>(1000);
     const [moral, setMoral] = useState<number>(100);
     const [proud, setProud] = useState([false,false,false,false,false,false,false,false,false,false]);

@@ -16,8 +16,8 @@ const AttributeToast: React.FC<AttributeToast> = ({onClose,content}) => {
                             return(
                                 <View className='AttributeToast_item'
                                       style={{backgroundImage:item.type=='moral'?
-                                              `url('https://s2.loli.net/2024/05/07/uWAN4bBhlvtjIPk.png')` :
-                                               `url('https://s2.loli.net/2024/05/07/IeB5xaJ9WSrAGq7.png')` ,
+                                              `url('https://m.qpic.cn/psc?/V538RWjT3LWaf01APMuH1IS43y3oRyH9/ruAMsa53pVQWN7FLK88i5pyKAkxLV6c.Yg.Ur3ZPCPV9QczKMVjgcjKPggkDteDR.i60Zg0sQ6AYLn2ZUTLZ3RTOBAl59f70y5LDAUpbv7s!/b&bo=CQLcAgAAAAADF.c!&rf=viewer_4')` :
+                                               `url('https://m.qpic.cn/psc?/V538RWjT3LWaf01APMuH1IS43y3oRyH9/ruAMsa53pVQWN7FLK88i5pyKAkxLV6c.Yg.Ur3ZPCPXIZm9kDrPeD9H39wrXDytSFgKCeWIZzx7qbMygn6ZvPsuo4*q8CIuaHmp2CiuQ3mM!/b&bo=CQLpAgAAAAADF9I!&rf=viewer_4')` ,
                                           color:item.type=='money'?'#2D5E03':'#D62D1A'}}>
                                     {item.content}
                                 </View>

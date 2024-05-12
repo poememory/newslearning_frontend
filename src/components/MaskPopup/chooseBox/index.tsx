@@ -1,54 +1,48 @@
-import { View, Text,Image} from '@tarojs/components'
-import {useState, useEffect, Dispatch} from 'react'
+import { View } from '@tarojs/components'
+import {useState, Dispatch} from 'react'
 import './index.less'
 import debounce from "@/method/debonce";
 
 
 interface ChooseContent{
     content:string,
-    imgurl:any,
     gap:number
 }
 interface ChooseboxProps{
     onClose:()=>void,
     setChoice_gap:Dispatch<React.SetStateAction<number[]>>,
-    choice_gap:number[],
+    setChoice_index:Dispatch<React.SetStateAction<number[]>>,
     content:ChooseContent[]
 }
-const Choosebox: React.FC<ChooseboxProps> = ({onClose,setChoice_gap,choice_gap,content}) => {
+const Choosebox: React.FC<ChooseboxProps> = ({onClose,setChoice_gap,setChoice_index,content}) => {
+    const initialArr = Array(content.length).fill(false);
+    const [ChocieArr, setChocieArr] = useState(initialArr);
 
+    function handleClick(gap: number, index: number) {
+        setChocieArr(prev => {
+            return prev.map((item, i) => i === index ? item : !item);
+        });
+
+        setTimeout(() => {
+            setChoice_gap(prev => [...prev, gap]);
+            setChoice_index(prev => [...prev, index]);
+            onClose();
+        }, 1200);
+    }
 
     return (
         <>
-            <View className='choosePage'>
                 <View className='choosebox'>
-                    <View className='choosebox_title'>
-                            你的选择
-                    </View>
-                    <View className='choosebox_content'>
-                        {content.map((item)=>{
+                        {content.map((item,index)=>{
                                 return(
-                                    <View className='choice_item'
-                                      onClick={
-                                        debounce(
-                                            ()=>{onClose();
-                                                            setChoice_gap([...choice_gap,item.gap])}
-                                            ,300)
-                                    }
+                                    <View className={`choice_item ${ChocieArr[index]?'fade-out' : ''}`}
+                                      onClick={debounce(()=>handleClick(item.gap,index),200)}
                                     >
-
-                                        <Image src={item.imgurl} className='choice_icon'></Image>
-
-                                        {item.content.split('，').map((line)=>{
-                                            return(<View className='choice_content'>{line}</View>)
-                                        })}
-
+                                        {item.content}
                                     </View>
                                 )
                         })}
-                    </View>
                 </View>
-            </View>
         </>
     );
 }

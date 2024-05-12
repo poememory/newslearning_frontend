@@ -1,28 +1,38 @@
-@import url('../index.less');
-.ForwordInfoPage{
-    .mask
-}
 .ForwordInfobox{
-    width: 50vw;
-    padding: 3vw;
-    border-radius: 2vw;
-    background-color: #FEF3ED;
+    position: absolute;
+    bottom: 5vh;
+    left: 0;
+    width: 80vw;
+    height: 7vw;
+    padding: 2vw 10vw;
+    background-image: url("../../../assets/images/DialogBox.png");
+    background-size:  100vw 11vw;
     animation: box_come 0.7s;
-    View{
-        width: 50vw;
-        color: #312517;
-        text-align: center;
-        font-size: 2vw;
-        line-height:3vw;
+}
+.click_icon_ForwordInfo{
+    position: absolute;
+    bottom: 5vh;
+    right: 10vw;
+    font-size: 2vw;
+    font-weight: bold;
+    animation: breath 1s linear infinite;
+}
+@keyframes breath{
+    0%{
+        opacity: 1;
+    }
+    50%{
+        opacity: 0.3;
+    }
+    100%{
+        opacity: 1;
     }
 }
 @keyframes box_come {
     from {
-        transform: rotate(90deg) translateX(100%);
         opacity: 0;
     }
     to {
-        transform: rotate(0deg) translateX(0);
         opacity: 1;
     }
 }

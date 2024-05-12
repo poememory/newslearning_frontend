@@ -3,8 +3,12 @@
     .fullbox;
     display: flex;
     flex-direction: column;
-    padding-left:20vw;
-    padding-top: 5vh;
+    padding-left:22vw;
+    padding-top: 15vh;
+    background-color: black;
+}
+.BackgroudInfo View,Text{
+    color: #FFFFFF;
 }
 .BackgroudInfo-item-unmount{
     margin: 4vh;
@@ -21,13 +25,33 @@
         padding-right: 1vw;
     }
 }
+.click_icon_backgroundInfo{
+    position: absolute;
+    font-size: 2vw;
+    font-weight: bold;
+    bottom: 5vh;
+    right: 5vw;
+    animation: breath 1s linear infinite;
+}
+@keyframes breath{
+    0%{
+        opacity: 1;
+    }
+    50%{
+        opacity: 0.3;
+    }
+    100%{
+        opacity: 1;
+    }
+}
+
 @keyframes comeout{
     0%{
-        opacity: 0; 
+        opacity: 0;
         margin-top: -3vw;
     }
     100%{
-        opacity: 1; 
+        opacity: 1;
         margin-top: 0;
     }
 
