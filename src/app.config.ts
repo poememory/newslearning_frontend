@@ -1,8 +1,13 @@
 export default defineAppConfig({
   pages: [
-    'pages/index/index',
-    'pages/backgroundInfo/index',
-    'pages/gameChapters/Chapter1packed'
+        'pages/index/index',
+        'pages/characterPage/index',
+        'pages/backgroundInfo/index',
+        'pages/chapterSelect/index',
+        'pages/gameChapters/chapter1/Chapter1packed',
+        'pages/gameChapters/chapter2/Chapter2packed',
+        'pages/gameChapters/chapter3/Chapter3packed',
+        'pages/gameChapters/chapter4/Chapter4packed',
   ],
   window: {
     backgroundTextStyle: 'light',

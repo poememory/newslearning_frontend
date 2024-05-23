@@ -17,17 +17,21 @@ interface ChooseboxProps{
 const Choosebox: React.FC<ChooseboxProps> = ({onClose,setChoice_gap,setChoice_index,content}) => {
     const initialArr = Array(content.length).fill(false);
     const [ChocieArr, setChocieArr] = useState(initialArr);
+    const [Clicked, setClicked] = useState(false)
 
     function handleClick(gap: number, index: number) {
-        setChocieArr(prev => {
-            return prev.map((item, i) => i === index ? item : !item);
-        });
-
-        setTimeout(() => {
-            setChoice_gap(prev => [...prev, gap]);
-            setChoice_index(prev => [...prev, index]);
-            onClose();
-        }, 1200);
+        if(!Clicked){
+                setChocieArr(prev => {
+                    return prev.map((item, i) => i === index ? item : !item);
+                });
+                setClicked((true))
+                setTimeout(() => {
+                    setChoice_gap(prev => [...prev, gap]);
+                    setChoice_index(prev => [...prev, index]);
+                    setClicked(false)
+                    onClose();
+                }, 1200);
+        }
     }
 
     return (

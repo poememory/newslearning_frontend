@@ -1,5 +1,5 @@
-import { View, Text,Image} from '@tarojs/components'
-import { useState ,useEffect} from 'react'
+import { View} from '@tarojs/components'
+import { useState } from 'react'
 import './index.less'
 import debounce from '@/method/debonce'
 import {useGlobalContext} from "@/context/GlobalContext";
@@ -31,7 +31,7 @@ const Dilogbox: React.FC<DilogboxProps> = ({onClose,Dilogcontent}) => {
       <View className='Dilogbox' onClick={debounce(handleclick,300)}>
           <View className='Dilog_character teamate_character' style={{backgroundImage:`url(${gender=='male'?femaleImg:maleImg})`}} ></View>
           <View className='Dilog_character' style={{backgroundImage:`url(${gender=='male'?maleImg:femaleImg})`}}></View>
-        <View className='DilogAvatar' style={{display:Dilogcontent[onShowDilog].type=="aside"?"none":'',left:Dilogcontent[onShowDilog].type=="me"?'65vw':'30vw'}}>
+        <View className='DilogAvatar' style={{display:Dilogcontent[onShowDilog].type=="aside"?"none":''}}>
             {Dilogcontent[onShowDilog].type=='me'?'我':'同事'}
         </View>
         <Onshow></Onshow>

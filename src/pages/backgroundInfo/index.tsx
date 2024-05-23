@@ -1,7 +1,7 @@
 import { View, Text } from '@tarojs/components'
 import Taro from '@tarojs/taro';
 import './index.less'
-import { useEffect,useState } from 'react'
+import { useState } from 'react'
 import debounce from '@/method/debonce';
 
 export default function BackgroundInfo() {
@@ -12,7 +12,7 @@ export default function BackgroundInfo() {
         if (firstUnmountIndex !== -1) {
             updatedStat[firstUnmountIndex] = "mount";
         } else {
-            Taro.redirectTo({url:'/pages/gameChapters/Chapter1packed'})
+            Taro.redirectTo({url:'/pages/chapterSelect/index'})
         }
         setStat(updatedStat);
     };
