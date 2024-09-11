@@ -1,0 +1,82 @@
+.ProudPage{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: #8479D5;
+  z-index: 1000000;
+}
+.Proud_back{
+  position: absolute;
+  top: 4vh;
+  left: 4vw;
+  color: #FFFFFF;
+  font-weight: 100;
+  font-size: 3vw;
+  width: 3vw;
+  height: 3vw;
+}
+
+.Proud_title{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 13vh;
+  padding-top: 3vh;
+  text-align: center;
+  background-color: #3E2485;
+  color: #FFFFFF;
+  font-size: 3.5vw;
+  font-family: 'Microsoft YaHei', serif;
+}
+.Proud_title::before{
+  content: '';
+  width: 4vw;
+  height: 6vw;
+  position: absolute;
+  top: 3vh;
+  left: 40vw;
+  background-image: url("../../assets/images/proud_icon.png");
+  background-size: cover;
+}
+.Proud_show_box{
+  width: 90vw;
+  height: 80vh;
+  position: absolute;
+  left: 5vw;
+  bottom: 3vh;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  align-content: space-around;
+}
+.proud_item{
+  width: 25vw;
+  height: 15vh;
+  padding-top: 5vh;
+  border-radius: 3vw;
+}
+.proud_item_success{
+  .proud_item;
+  background-color: #3E2485;
+  color: #FFFFFF;
+  font-family: 'Microsoft YaHei', serif;
+  text-align: center;
+  font-size: 6vh;
+}
+.proud_item_fail{
+  .proud_item;
+  background-color:#40395A;
+  position: relative;
+}
+.proud_item_fail::after{
+  content: '?';
+  font-family: 'Microsoft YaHei', serif;
+  font-size: 15vh;
+  position: absolute;
+  left: 10vw;
+  top: 1vh;
+  color:#000242 ;
+}

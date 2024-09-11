@@ -1,0 +1,25 @@
+.LoadingPage{
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.Loading_icon{
+  width: 15vw;
+  height: 15vw;
+  background-image: url("../../assets/images/loading.png");
+  background-size: cover;
+  animation: loading 2s infinite;
+}
+@keyframes loading {
+  0% {
+    transform: rotate(0deg);
+  }
+  50%{
+    transform: rotate(180deg) scale(0.7);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}

@@ -1,0 +1,47 @@
+.ForwordInfobox{
+    position: absolute;
+    bottom: 5vh;
+    left: -8vw;
+    width: 60vw;
+    height: 8vw;
+    padding: 2vw 40vw 2vw 14vw;
+    background-image: url("../../../assets/images/DialogBox.png");
+    background-size:  120vw 12vw;
+    animation: box_come 0.7s;
+    overflow: visible;
+}
+.ForwordInfo_character{
+    width: 36vw;
+    height: 54vw;
+    position: absolute;
+    bottom: -5vh;
+    right: 12vw;
+    background-size:cover;
+}
+.click_icon_ForwordInfo{
+    position: absolute;
+    bottom: 5vh;
+    right: 10vw;
+    font-size: 2vw;
+    font-weight: bold;
+    animation: breath 1s linear infinite;
+}
+@keyframes breath{
+    0%{
+        opacity: 1;
+    }
+    50%{
+        opacity: 0.3;
+    }
+    100%{
+        opacity: 1;
+    }
+}
+@keyframes box_come {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}

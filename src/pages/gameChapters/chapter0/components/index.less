@@ -1,0 +1,119 @@
+.Step_board{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 100;
+    background-size: 100% 100%;
+    transition: 0.3s;
+}
+  
+  .character {
+    width: 7vw;
+    height: 10vw;
+    background-size: 100% 100%;
+    position: absolute; /* 使角色绝对定位 */
+    transform: translate(-50%,-85%);
+    transition: top 0.5s ease, left 0.6s ease; /* 平滑移动效果 */
+  }
+  .dice_show{
+    position: absolute;
+    top: 50vh;
+    left: 50vw;
+    width: 7vw;
+    height: 7vw;
+    background-size: 100% 100%;
+    transform: translate(-50%,-50%);
+  }
+  .dice_tip{
+    position: absolute;
+    top: 70vh;
+    left: 50vw;
+    transform: translate(-50%,-50%);
+    font-size: 2vw;
+    color: white;
+    box-shadow:  2px grey;
+    animation:breathe 1.5s infinite;
+  }
+  .shaking_ani{
+    animation:shaking 1s ;
+  }
+  .Tip_board{
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-image:url('https://m.qpic.cn/psc?/V538RWjT3LWaf01APMuH1IS43y3oRyH9/TmEUgtj9EK6.7V8ajmQrEED2xXSYUOLxxPpqNtAepJUMoRospvmgCRiQWxTkkBPC1TXxXdAdhH6iMrxZdMcO7cjNJ9QSkVu*wkLJTpZPyQQ!/b&bo=aAcsBAAAAAADN1U!&rf=viewer_4');
+    background-size: 100% 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .Tip_center{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .Tip_title{
+    font-size: 2.5vw;
+    margin-bottom: 2vw;
+  }
+  .tip_content{
+    width: 50vw;
+  }
+  .White_board{
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-image: url( 'https://m.qpic.cn/psc?/V538RWjT3LWaf01APMuH1IS43y3oRyH9/TmEUgtj9EK6.7V8ajmQrEED2xXSYUOLxxPpqNtAepJXn9jCCOh19LC3qkohc437NaZkjwT.JTiPEMi9KZNJ7TINotjmEIfXa3FHqWceXbRA!/b&bo=aAcsBAAAAAADJ0U!&rf=viewer_4');
+    background-size: 100% 100%;
+    }
+.white_board_content{
+  position: absolute;
+  left: 40vw;
+  top: 21vh;
+  width: 45vw;
+  height: 50vh;
+  display: flex;
+  align-items: center;
+  Text{
+    font-size: 4vh;
+  }
+}
+  @keyframes shaking{
+    0%{
+    }
+    10%{
+        transform: translateX(3vw) rotate(30deg);
+    }
+    30%{
+        transform: translateX(-6vw) rotate(-30deg);
+    }
+    50%{
+        transform: translateX(9vw) rotate(30deg);
+    }
+    70%{
+        transform: translateX(-12vw) rotate(-30deg);
+    }
+    100%{
+        transform: '';
+    }
+  }
+  @keyframes breathe{
+    0%{
+        opacity: 1;
+    }
+    30%{
+        opacity: 0.5;
+    }
+    70%{
+        opacity: 0.5;
+    }
+    100%{
+        opacity: 1;
+    }
+  }

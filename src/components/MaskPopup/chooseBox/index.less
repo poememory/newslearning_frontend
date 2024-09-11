@@ -1,0 +1,35 @@
+
+.choosebox{
+  position: absolute;
+  left: 10vw;
+  top: 15vh;
+  width: 80vw;
+  height: 70vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+}
+.fade-out {
+  animation: fadeOut 1s forwards;
+}
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+.choice_item{
+  width: 60vw;
+  min-height:9vh;
+  padding-top: 4vh;
+  border-radius: 3vw;
+  text-align: center;
+  background-image: url("../../../assets/images/CharacterBox.png");
+  background-size: 100% 100%;
+}
+
+
+

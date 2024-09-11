@@ -1,0 +1,93 @@
+@import "../../app";
+.CharacterPage{
+  width: 100vw;
+  height: 100vh;
+  background-image: url('https://m.qpic.cn/psc?/V538RWjT3LWaf01APMuH1IS43y3oRyH9/ruAMsa53pVQWN7FLK88i5mBQ*iN6nSL4uHMAxXZry78tw7Jzq.KBwNJ70icUyQtJEKtKojCVUoy2JhEbuTSZ1ykQaKOQuntLHzoH7NeRo.8!/b&bo=Jwk4BAAAAAABFyI!&rf=viewer_4');
+  background-size: 100vw 100vh;
+}
+.CharacterPage_title{
+  position: absolute;
+  top: 10vh;
+  width: 100vw;
+  text-align: center;
+  font-size: 4vw;
+  font-family: sans-serif ;
+  color: #FFFFFF;
+}
+.Characterbox{
+  width: 70vw;
+  padding-left: 10vw;
+  height: 40vh;
+  position: absolute;
+  top: 30vh;
+  left: 10vw;
+  background-color: #FFFFFF;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  border-radius: 5vw;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+}
+.Character_item{
+  display: flex;
+  Input{
+    font-size: 2vw;
+  }
+}
+.Character_item_title{
+  font-weight: 700;
+  font-size: 2vw;
+  font-family: sans-serif ;
+}
+.radio-list__label{
+  display: inline-block;
+  width: 8vw;
+}
+.bgColorChange_male{
+  animation: bgColorChange_male 1s forwards;
+}
+.bgColorChange_female{
+  animation: bgColorChange_female 1s forwards;
+}
+@keyframes bgColorChange_male {
+  to{
+    background-color: #c9e3f1;
+  }
+}
+@keyframes bgColorChange_female {
+  to{
+    background-color: #FFDEE9;
+  }
+}
+.character_img{
+  position: absolute;
+  bottom: 0;
+  right: 6vw;
+  width: 40vw;
+  height: 60vw;
+  background-size: cover;
+  animation:rightin 1s;
+}
+.CharacterPage_handle{
+  text-align: center;
+  width: 15vw;
+  height: 10vh;
+  padding-top: 3vh;
+  font-size: 5vh;
+  font-weight: 800;
+  font-family: sans-serif ;
+  position: absolute;
+  bottom: 10vh;
+  left: 30vw;
+  border-radius: 2vw;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+}
+@keyframes rightin {
+  0%{
+    margin-right: 50vw;
+  }
+  100%{
+    margin-right: 0;
+  }
+}
+

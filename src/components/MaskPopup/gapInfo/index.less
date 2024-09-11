@@ -1,0 +1,56 @@
+.GapInfoPage{
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+  left: 0;
+  top: 0;
+  background-color: rgba(0, 0, 0, 0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  animation: fadeIn 1s;
+  z-index: 10000;
+}
+.GapInfo_text{
+  width: 70vw;
+  text-align: center;
+  Text{
+    color: #FFFFFF;
+    line-height: 4vw;
+  }
+}
+.click_icon_GapInfo{
+  color: #FFFFFF;
+  position: absolute;
+  bottom: 5vh;
+  right: 10vw;
+  font-size: 2vw;
+  font-weight: bold;
+  animation: breath 1s linear infinite;
+}
+.totalBlack{
+  background-color: black;
+}
+
+@keyframes breath{
+  0%{
+    opacity: 1;
+  }
+  50%{
+    opacity: 0.3;
+  }
+  100%{
+    opacity: 1;
+  }
+}
+@keyframes fadeIn {
+  0%{
+    background-color: rgba(0, 0, 0, 0);
+  }
+  40%{
+    background-color: rgba(0, 0, 0, 0.5);
+  }
+  100%{
+    background-color: rgba(0, 0, 0, 0.8);
+  }
+}
