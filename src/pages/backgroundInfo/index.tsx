@@ -12,7 +12,7 @@ export default function BackgroundInfo() {
         if (firstUnmountIndex !== -1) {
             updatedStat[firstUnmountIndex] = "mount";
         } else {
-            Taro.redirectTo({url:'/pages/menu/index'})
+            Taro.redirectTo({url:'/pages/menu/index?mode=student'})
         }
         setStat(updatedStat);
     };

@@ -90,47 +90,50 @@ export const getContent = () => {
             type: 'blue'
         }
     ]
-    const Dialog={
-        others:{
+    const Dialog=[
+        {others:{
             name:'同事',
             imgurl:'sex',
             self:'common',
         },
-        content:[[
+        content:[
             {content:'这里太危险了，孩子又太小，要不我们还是答应这个母亲吧。',type:'me'},
             {content:'但是回去的路还是太过于危险了，我们过来的时候就不太容易，更何况是还带着一个孩子呢？',type:'teammate'},
             {content:'而且我们才刚刚进入灾区，我们的报道任务尚未推进，带着孩子离开我们会完不成任务的！',type:'teammate'},
             {content:'(两个人相互望了一眼，又陷入了沉思......)',type:'aside'}
-        ]]
-    }
+        ]},
+    ]
 
     const Choice=[
         [
-            {content:'答应母亲，把孩子带到安全区',gap:1},
-            {content:'陪着孩子留在母亲身边，等待救援队 ',gap:4},
-            {content:'让同事单独留下来，你只身前往其他地方，进行报道 ',gap:7}
+            {content:'A.答应母亲，把孩子带到安全区',gap:1},
+            {content:'B.陪着孩子留在母亲身边，等待救援队 ',gap:4},
+            {content:'C.让同事单独留下来，你只身前往其他地方，进行报道 ',gap:7}
         ],
         [
-            {content:'当然要去!',gap:1},
-            {content:'安全最重要，还是留下吧',gap:9}
+            {content:'A.当然要去!',gap:1},
+            {content:'B.安全最重要，还是留下吧',gap:9}
         ],
         [
-            {content:'拍摄救援人员，作为救援报道素材',gap:2},
-            {content:'拍摄被救助的人，作为灾民情况报道',gap:1}
+            {content:'A.拍摄救援人员，作为救援报道素材',gap:2},
+            {content:'B.拍摄被救助的人，作为灾民情况报道',gap:1}
         ],
         [
-            {content:'说不定能挖到点新东西，留下来记录报道',gap:1},
-            {content:'时间紧任务重，还是先离开',gap:4}
+            {content:'A.说不定能挖到点新东西，留下来记录报道',gap:1},
+            {content:'B.时间紧任务重，还是先离开',gap:4}
         ],
         [
-            {content:'推门进入病房，向老师表明来意，取得同意后采访',gap:1},
-            {content:'推门进入病房，表明来意约定采访时间，致歉离开',gap:6},
-            {content:' 放弃这个选题，外出另寻素材 ',gap:12}
+            {content:'A.推门进入病房，向老师表明来意，取得同意后采访',gap:1},
+            {content:'B.推门进入病房，表明来意约定采访时间，致歉离开',gap:6},
+            {content:'C.放弃这个选题，外出另寻素材 ',gap:12}
         ],
         [
-            {content:'继续采访',gap:1},
-            {content:'叫停采访，与老师另约时间',gap:4}
+            {content:'A.继续采访',gap:1},
+            {content:'B.叫停采访，与老师另约时间',gap:4}
         ]
     ]
-    return {Info,GapInfo,Dialog,Choice}
+    const certain=[
+
+    ]
+    return {Info,GapInfo,Dialog,Choice,certain}
 };

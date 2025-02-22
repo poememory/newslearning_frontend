@@ -70,35 +70,38 @@ export const getContent = () => {
 
     const Choice=[
         [
-            {content:'会',gap:1},
-            {content:'不会',gap:23},//不会
+            {content:'A.会',gap:1},
+            {content:'B.不会',gap:23},//不会
         ],
         [
-            {content:'十分娴熟',gap:1},
-            {content:'一般般',gap:1},
-            {content:'不怎么熟悉',gap:21},//不会
+            {content:'A.十分娴熟',gap:1},
+            {content:'B.一般般',gap:1},
+            {content:'C.不怎么熟悉',gap:21},//不会
         ],
         [
-            {content:'很熟悉，而且参与过实际演练',gap:1},
-            {content:'一般了解，并没有实际尝试过 ',gap:1},
-            {content:'不了解 ',gap:19},//不会
+            {content:'A.很熟悉，而且参与过实际演练',gap:1},
+            {content:'B.一般了解，并没有实际尝试过 ',gap:1},
+            {content:'C.不了解 ',gap:19},//不会
         ],
         [
-            {content:'跳入江中救人 ',gap:1},
-            {content:'大声向他人呼救  ',gap:17},
+            {content:'A.跳入江中救人 ',gap:1},
+            {content:'B.大声向他人呼救  ',gap:17},
         ],
         [
-            {content:'上前开展急救 ',gap:1},
-            {content:'继续寻找会急救的人',gap:12},
+            {content:'A.上前开展急救 ',gap:1},
+            {content:'B.继续寻找会急救的人',gap:12},
         ],
         [
-            {content:'联系视频发布者删除视频 ',gap:1},
-            {content:'向报社申请，进行回应',gap:5},
+            {content:'A.联系视频发布者删除视频 ',gap:1},
+            {content:'B.向报社申请，进行回应',gap:5},
         ],
         [
-            {content:'要报道，这样才能避免更多人出现危险 ',gap:1},
-            {content:'不报道，这是对溺水的人的二次伤害了，不太道德',gap:4},
+            {content:'A.要报道，这样才能避免更多人出现危险 ',gap:1},
+            {content:'B.不报道，这是对溺水的人的二次伤害了，不太道德',gap:4},
         ]
     ]
-    return {Info,GapInfo,Dialog,Choice}
+    const certain=[
+
+    ]
+    return {Info,GapInfo,Dialog,Choice,certain}
 };

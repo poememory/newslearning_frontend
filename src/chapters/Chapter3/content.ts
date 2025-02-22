@@ -76,25 +76,28 @@ export const getContent = () => {
 
     const Choice=[
         [
-            {content:'拍摄照片',gap:1},
-            {content:'录制视频',gap:1},
+            {content:'A.拍摄照片',gap:1},
+            {content:'B.录制视频',gap:1},
         ],
         [
-            {content:'继续蹲守，拍摄更多素材',gap:1},
-            {content:'停止拍摄，放路障提醒过路人',gap:18},
+            {content:'A.继续蹲守，拍摄更多素材',gap:1},
+            {content:'B.停止拍摄，放路障提醒过路人',gap:18},
         ],
         [
-            {content:'交，这样的报道才更有价值',gap:1},
-            {content:'不交，只顾着拍摄，不知道帮人，良心难安',gap:11},
+            {content:'A.交，这样的报道才更有价值',gap:1},
+            {content:'B.不交，只顾着拍摄，不知道帮人，良心难安',gap:11},
         ],
         [
-            {content:'让有关部门重视井盖松动的问题',gap:1},
-            {content:'创作出与众不同的暴雨报道，让更多读者看到你独到的眼光 ',gap:4},
+            {content:'A.让有关部门重视井盖松动的问题',gap:1},
+            {content:'B.创作出与众不同的暴雨报道，让更多读者看到你独到的眼光 ',gap:4},
         ],
         [
-            {content:'不管网上的争议，让这件事的热度慢慢过去',gap:1},
-            {content:'进行后续报道，讲述拍摄的前因后果  ',gap:5},
+            {content:'A.不管网上的争议，让这件事的热度慢慢过去',gap:1},
+            {content:'B.进行后续报道，讲述拍摄的前因后果  ',gap:5},
         ]
     ]
-    return {Info,GapInfo,Dialog,Choice}
+    const certain=[
+            
+    ]
+    return {Info,GapInfo,Dialog,Choice,certain}
 };

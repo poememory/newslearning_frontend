@@ -7,26 +7,32 @@ interface PreloadResourcesProps {
   audios: string[];
   videos: string[];
   onPreloadComplete: () => void;
+
 }
 
 
-const PreloadResources: React.FC<PreloadResourcesProps> = ({ images, audios, videos, onPreloadComplete }) => {
-    const allResources = [...images, ...audios, ...videos];
+const PreloadResources: React.FC<PreloadResourcesProps> = ({ images, audios,videos, onPreloadComplete }) => {
+    const allResources = [...images];
 
     useEffect(() => {
-        const downloadPromises = allResources.map(item => {
-            return new Promise<void>((resolve, reject) => {
-                Taro.downloadFile({
-                    url: item,
-                    success: () => resolve(),
-                    fail: () => reject()
-                });
-            });
-        });
+        // const downloadPromises = allResources.map((item)=> {
+        //     return new Promise<void>((resolve, reject) => {
+        //         Taro.downloadFile({
+        //             url: item,
+        //             success: () => {
+        //                 resolve()
+        //             },
+        //             fail: () => reject()
+        //         });
+        //     });
+        // });
 
-        Promise.all(downloadPromises)
-            .then(() => onPreloadComplete())
-            .catch(() => onPreloadComplete());
+        // Promise.all(downloadPromises)
+        //     .then(() => onPreloadComplete())
+        //     .catch(() => onPreloadComplete());
+        setTimeout(() => {
+            onPreloadComplete()
+        }, 2000);
     }, []);
 
     return null;

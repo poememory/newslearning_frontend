@@ -58,18 +58,8 @@ export const GlobalProvider: React.FC<PropsWithChildren<{}>> = ({ children }) =>
         };
         fetchData();
     }, []);
-    // useEffect(() => {
-    //     const saveData = async () => {
-    //         try {
-    //             await Taro.setStorage({ key: 'money', data: money });
-    //             await Taro.setStorage({ key: 'moral', data: moral });
-    //             await Taro.setStorage({ key: 'proud', data: proud.map(item => item ? '1' : '0').join(',') });
-    //         } catch (error) {
-    //             console.error('Failed to save data:', error);
-    //         }
-    //     };
-    //     saveData();
-    // }, [money, moral, proud]);
+
+
     // 改为每个章节结束存下
     const updateNickname= (data: string)=> {
         setNickname(data);
@@ -88,7 +78,7 @@ export const GlobalProvider: React.FC<PropsWithChildren<{}>> = ({ children }) =>
         setProud(data);
     };
     if (loading) {
-        return <Loading></Loading>
+        return <Loading ></Loading>
     }
     return (
         <GlobalContext.Provider value={{ nickname,gender,money,moral,proud,updateNickname,updateGender,updateMoney, updateMoral,updateProud }}>

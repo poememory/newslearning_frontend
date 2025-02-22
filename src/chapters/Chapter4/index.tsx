@@ -173,7 +173,7 @@ const Chapter4Index = () => {
                 progressContent={progressContent}
                 content={content}
                 imagesToPreloader={imagesToPeloader}
-                chapterIndex={3}
+                chapterIndex={4}
             />
         </GlobalProvider>
     );

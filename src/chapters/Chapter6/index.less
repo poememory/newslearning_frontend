@@ -1,0 +1,114 @@
+.montor_word{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-image: url('https://m.qpic.cn/psc?/V538RWjT3LWaf01APMuH1IS43y3oRyH9/TmEUgtj9EK6.7V8ajmQrEED2xXSYUOLxxPpqNtAepJWT2vINc49c2W2n*ZWvcliXbIUPpCOHUETkQKTYS9.*ghFia3KK0D1**WLbS7DVhzM!/b&bo=QBU4BAAAAAADN3s!&rf=viewer_4');
+    background-size: 90% 45%;
+    background-repeat: no-repeat;
+    background-position: 40% 30%;
+}
+.monter_phone{
+    width: 0;
+    height: 0;
+    position: absolute;
+    top: 2vh;
+    left: 10vw;
+}
+.monter_phone::after{
+    content: '你确定？这可不能说好像，给我个确切的回复！';
+    font-size: 3vh;
+    width:14vw;
+    height: 20vh;
+    padding-top: 43vh;
+    padding-left: 6vw;
+    padding-right: 5vw;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-image: url('https://m.qpic.cn/psc?/V538RWjT3LWaf01APMuH1IS43y3oRyH9/TmEUgtj9EK6.7V8ajmQrEED2xXSYUOLxxPpqNtAepJVckm7iV3SHluV66kCmwtZf3PBkO1TGp9ydcA8Z1bxHKkgf2daMCXlgo0tvod3lF5w!/b&bo=OAQyBQAAAAADFzk!&rf=viewer_4');
+    background-size: 100% 100%;
+
+}
+.fire_page{
+    width: 80vw;
+    padding-left: 20vw;
+    height: 100vh;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    background-color: black;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    View{
+        color: white;
+    }
+    Text{
+        font-size:larger;
+        color: red;
+    }
+    animation: fadeIn 1s forwards;
+}
+.mishu_phone{
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+    top: 0;
+    left: 10vw;
+}
+.mishu_phone::after{
+    content: '先生还在抢救中……请你们媒体尽快辟谣！';
+    font-size: 3vh;
+    width:14vw;
+    height: 20vh;
+    padding-top: 43vh;
+    padding-left: 6vw;
+    padding-right: 5vw;
+    position: absolute;
+    top: 2vh;
+    left: 0;
+    background-image: url('https://m.qpic.cn/psc?/V538RWjT3LWaf01APMuH1IS43y3oRyH9/TmEUgtj9EK6.7V8ajmQrEAbR9pGM5a0duaa.nqPZ64nE2hZRi9phRHiwoCDhv5akZe8lae08Uaq6Spf8Xm1YBssNp94cvFhc3ZdLJ9UsduE!/b&bo=OAQtBQAAAAADFyY!&rf=viewer_4');
+    background-size: 100% 100%;
+
+}
+@keyframes fadeIn {
+    from {
+      opacity: 0; /* 初始透明度 */
+    }
+    to {
+      opacity: 1; /* 最终透明度 */
+    }
+  }
+  .glass_break{
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    background-image: url('https://m.qpic.cn/psc?/V538RWjT3LWaf01APMuH1IS43y3oRyH9/TmEUgtj9EK6.7V8ajmQrENxFgTl0Uv3cewinyR2EVEZSy6V1FpVMtGTFNErUxL.vmKCBnIsRXAN6kUqTq9pxk.b6JbRqcv.OVoJDVt4gbpQ!/b&bo=9AS5AgAAAAADB2k!&rf=viewer_4');
+    background-size: cover;
+    z-index: 100000;
+    animation: breakout 4s 2s forwards;
+}
+.temmate_words{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-image: url('https://m.qpic.cn/psc?/V538RWjT3LWaf01APMuH1IS43y3oRyH9/TmEUgtj9EK6.7V8ajmQrEAbR9pGM5a0duaa.nqPZ64nvNjb8HzAOPbgwaRlYbsBEWUxuUFE.lUog5pjmXfgCbRffmPTV0ZCxq*s3STH5gcU!/b&bo=5Aw4BAAAAAADN8Y!&rf=viewer_4');
+    background-size: 90% 60%;
+    background-repeat: no-repeat;
+    background-position: 40% 30%;
+}
+@keyframes breakout{
+    0%{ 
+        opacity: 0;
+    }
+    100%{
+        opacity: 1;
+    }
+}

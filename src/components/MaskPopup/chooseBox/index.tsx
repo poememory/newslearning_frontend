@@ -11,7 +11,7 @@ interface ChooseContent{
 interface ChooseboxProps{
     onClose:()=>void,
     setChoice_gap:Dispatch<React.SetStateAction<number[]>>,
-    setChoice_index:Dispatch<React.SetStateAction<number[]>>,
+    setChoice_index:Dispatch<React.SetStateAction<number>>,
     content:ChooseContent[]
 }
 const Choosebox: React.FC<ChooseboxProps> = ({onClose,setChoice_gap,setChoice_index,content}) => {
@@ -27,7 +27,7 @@ const Choosebox: React.FC<ChooseboxProps> = ({onClose,setChoice_gap,setChoice_in
                 setClicked((true))
                 setTimeout(() => {
                     setChoice_gap(prev => [...prev, gap]);
-                    setChoice_index(prev => [...prev, index]);
+                    setChoice_index(index);
                     setClicked(false)
                     onClose();
                 }, 1200);

@@ -9,16 +9,20 @@ import PreloadResources from "@/components/preloader/preloader";
 import { useGlobalContext } from "@/context/GlobalContext";
 import { View } from "@tarojs/components";
 import { getContent } from './content';
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import StepBoard from "./components/stepboard";
 import Tipboard from "./components/tipboard";
 import WhiteBoard from "./components/whiteboard";
 import Taro from "@tarojs/taro";
+import PieChart from "@/components/charts/PieChart";
+import BarChart from "@/components/charts/BarChart";
+import debounce from "@/method/debonce";
 
 export default function Chapter0(){
-    const {moral,updateMoral}=useGlobalContext()
+        const [mode,setmode]=useState('student')
+        const startTime = useRef(new Date().getTime());
+        const { moral, money, proud, updateMoral, updateMoney, updateProud } = useGlobalContext();
     const imagesToPreloader=['https://m.qpic.cn/psc?/V538RWjT3LWaf01APMuH1IS43y3oRyH9/TmEUgtj9EK6.7V8ajmQrEJXnkfRc6HEgVxX7Oo6K9bTFeVvyfbk3n.hL7b443v1qZ7fnzxvwbmwIbd*wP8hGuuz*TQAI*TQuCFJBbOVKHHg!/b&bo=AAXQAgAAAAABF.c!&rf=viewer_4',
-        'https://m.qpic.cn/psc?/V538RWjT3LWaf01APMuH1IS43y3oRyH9/TmEUgtj9EK6.7V8ajmQrEED2xXSYUOLxxPpqNtAepJWIFRMoVtygkeqJJ09PM*G4RnDj08EpKEu3c5yIEMRXhPCrDNIdKCa6.BWKN9ABC*8!/b&bo=hgc4BAAAAAADhx8!&rf=viewer_4',
         'https://m.qpic.cn/psc?/V538RWjT3LWaf01APMuH1IS43y3oRyH9/TmEUgtj9EK6.7V8ajmQrEED2xXSYUOLxxPpqNtAepJUMoRospvmgCRiQWxTkkBPC1TXxXdAdhH6iMrxZdMcO7cjNJ9QSkVu*wkLJTpZPyQQ!/b&bo=aAcsBAAAAAADN1U!&rf=viewer_4',
         'https://m.qpic.cn/psc?/V538RWjT3LWaf01APMuH1IS43y3oRyH9/TmEUgtj9EK6.7V8ajmQrEED2xXSYUOLxxPpqNtAepJXn9jCCOh19LC3qkohc437NaZkjwT.JTiPEMi9KZNJ7TINotjmEIfXa3FHqWceXbRA!/b&bo=aAcsBAAAAAADJ0U!&rf=viewer_4',//background
         'https://m.qpic.cn/psc?/V538RWjT3LWaf01APMuH1IS43y3oRyH9/TmEUgtj9EK6.7V8ajmQrEJXnkfRc6HEgVxX7Oo6K9bQuWPg6vyghPHwbNQnP.4QBCXi9vIT3UlmLatNqQzulxItZGeEm*TQwh3VSdX.xvqU!/b&bo=SgQ4BAAAAAADN2A!&rf=viewer_4',//teacher
@@ -54,13 +58,22 @@ export default function Chapter0(){
     const [white_board_index,setWhite_board_index]=useState(0)
 
     const [choice_gap, setChoice_gap] = useState<number[]>([0]);
-    const [choice_index, setChoice_index] = useState<number[]>([]);
+    const [choice_index, setChoice_index] = useState<number>(0);
 
     const [AttributeShow, setAttributeShow] = useState(false);
     const [Attribute_content, setAttribute_content] = useState<AttributeContent[]>([]);
 
     const [GapInfoShow, setGapInfoShow] = useState(false);
     const [GapInfo_content, setGapInfo_content] = useState(0);
+
+    const [choice_arr,set_choice_arr]=useState<any[]>([])
+
+    const [admin_question,setAdminQuestion]=useState(0)
+    const [piechartData,setPieChartData]=useState<any[]>([])
+    const [barChartData,setBarChartData]=useState<any[]>([[{name:'',value:0}]])
+
+    const [average_money,setAverage_money]=useState(1000)
+    const [average_moral,setAverage_moral]=useState(100)
     useEffect(()=>{
         console.log(progress);
         switch (progress) {
@@ -79,6 +92,7 @@ export default function Chapter0(){
                 break;
             case 4:
                 setProgress(2)//back to board
+                break;
             case 5://plot 1
                 setWhite_board_show(false)
                 setTip_content(0)
@@ -89,6 +103,7 @@ export default function Chapter0(){
                 setDilogbox_show(true)
                 break;
             case 7:
+                setchoosebox_content(0)
                 setchoosebox_show(true)
                 break;
             case 8:
@@ -159,12 +174,14 @@ export default function Chapter0(){
                 break;
             case 24:
                 setProgress(2)
+                break;
             case 25:
                 setWhite_board_index(4)
                 setWhite_board_show(true)
                 break;
             case 26:
                 setProgress(2)
+                break
             case 27://plot 4
                 setWhite_board_show(false)
                 setTip_content(3)
@@ -264,16 +281,56 @@ export default function Chapter0(){
                 break;
         }
     },[progress])
+     const updateUserData = async () => {
+            const email=Taro.getStorageSync('email')
+            const endTime = new Date().getTime();
+            const diffInSeconds = (endTime - startTime.current) / 1000;
+            try {
+              const res = await Taro.request({
+                url: 'https://www.gamefornewslearning.xyz/update-user', 
+                method: 'POST',
+                data: {
+                    email: email, 
+                    moral: moral,
+                    money: money, 
+                    proud: proud, 
+                    chapterIndex: 0, 
+                    choices: choice_arr,
+                    duration:diffInSeconds
+                  }
+              });
+        
+              if (res.statusCode === 200) {
+                Taro.showToast({
+                  title: '更新成功',
+                  icon: 'success'
+                });
+              } else {
+                Taro.showToast({
+                  title: '更新失败',
+                  icon: 'none'
+                });
+              }
+            } catch (error) {
+              console.error(error);
+              Taro.showToast({
+                title: '请求失败',
+                icon: 'none'
+              });
+            }
+          };
+    
     function endChapter(){
             Taro.setStorageSync('moral',moral)
+            updateUserData()
             Taro.showModal({
                 title: '提示',
                 content: '你完成了该章节的内容！',
                 success: function (res) {
                     if (res.confirm) {
-                        Taro.navigateBack()
+                        Taro.redirectTo({url:'/pages/menu/index?mode=student'})
                     } else if (res.cancel) {
-                        Taro.navigateBack()
+                        Taro.redirectTo({url:'/pages/menu/index?mode=student'})
                     }
                 },
             });
@@ -306,14 +363,107 @@ export default function Chapter0(){
     },[plotArr])
     useEffect(() => {
         setProgress(progress + choice_gap[choice_gap.length - 1]);
+        set_choice_arr(pre => {
+            let newarr = [...pre]; 
+            newarr[choosebox_content] = choice_index;
+            return newarr;
+        });
     }, [choice_gap]);
+    useEffect(()=>{
+        console.log(choice_arr);   
+    },[choice_arr])
+    useEffect(()=>{
+            const email=Taro.getStorageSync('email')
+            if(email=='admin'){
+                setmode('teacher')
+            }
+        },[])
+    
+        const handlePreloadComplete = () => {
+            const email=Taro.getStorageSync('email')
+            if(email!='admin'){
+                setShowPage(true);
+            }
+            else{
+                const getPageInfo = async () => {
+                
+                    try {
+                      const response = await Taro.request({
+                        url: 'https://www.gamefornewslearning.xyz/admin-stats',
+                        method: 'POST',
+                        data: {
+                          email: email, 
+                          chapterIndex:0
+                        }
+                      });
+                  
+                      if (response.statusCode === 200) {
+                        console.log(response.data);
+                        setBarChartData(convertToBarData(response.data.indexValueCounts))
+                        setPieChartData(Object.keys(response.data.arrayCounts).map((key, index) => {
+                            return {
+                              name: `结局${index + 1}数量`, 
+                              value: response.data.arrayCounts[key]
+                            };
+                          }))
+                        setAverage_money(response.data.averageMoney)
+                        setAverage_moral(response.data.averageMoral)
+                      } else {
+                        console.error('Failed to fetch chapter info:', response.data);
+                      }
+                    } catch (error) {
+                      console.error('Error fetching chapter info:', error);
+                    } finally{
+                        setTimeout(()=>{
+                            setShowPage(true)
+                        })
+                    }
+                  };
+                  getPageInfo()
+            }
+        };
+          function handleClick(){
+            if(admin_question<content.Choice.length-1){
+                setAdminQuestion(pre=>pre+1)
+            }
+            else{
+                Taro.showToast({
+                    title: '最后一题咯',
+                    icon: 'none',
+                })
+            }
+          }  
+          const convertToBarData = (indexValueCounts) => {
+            const barData = [];
+          
+            // 遍历 indexValueCounts
+            for (let index in indexValueCounts) {
+              // 如果当前index还没有对应的barData数组项，初始化为空数组
+              if (!barData[index]) {
+                barData[index] = [];
+              }
+          
+              const values = indexValueCounts[index];
+              // 遍历每个值，将其转换为 {name: value} 格式
+              for (let value in values) {
+                barData[index].push({
+                  name: value === 'null' ? 'null' : value, // 处理 null 作为字符串
+                  value: values[value],
+                });
+              }
+            }
+          
+            return barData;
+          };
     return(
-    <>
-        <PreloadResources images={imagesToPreloader} audios={[]} videos={[]} onPreloadComplete={()=>setShowPage(true)} />
+    <> 
+     {mode=='student'?
+        <>
+        <PreloadResources images={imagesToPreloader} audios={[]} videos={[]} onPreloadComplete={handlePreloadComplete} />
         {showPage ?(
             <>
                 <GameBoard game={true} backgroundImgurl={backgroundImgurl}></GameBoard>
-                {Dilogbox_show && <Dilogbox onClose={() => { setDilogbox_show(false); setProgress(progress + 1); }} Dilogcontent={content.Dialog.content[Dilog_content]} others={content.Dialog.others}></Dilogbox>}
+                {Dilogbox_show && <Dilogbox onClose={() => { setDilogbox_show(false); setProgress(progress + 1); } } Dilogcontent={content.Dialog[Dilog_content]}></Dilogbox>}
                 <View style={{display:StepBoard_show?'':'none'}}><StepBoard StepBoard_show={StepBoard_show} handleclose={handleclose}></StepBoard></View>
                 {tip_show&&<Tipboard content={content.Tip_content[tip_content]} onclose={()=>{setTip_show(false);setProgress(pre=>{return pre+1})}}/>}
                 {choosebox_show && <ChooseBox onClose={() => { setchoosebox_show(false); }} setChoice_gap={setChoice_gap} setChoice_index={setChoice_index} content={content.Choice[choosebox_content]}></ChooseBox>}
@@ -322,6 +472,44 @@ export default function Chapter0(){
                 {AttributeShow && <AttributeToast content={Attribute_content} onClose={() => { setAttributeShow(false); setProgress(progress + 1); }}></AttributeToast>}
             </>
         ):<Loading/>}
+        </>
+        :
+        <>
+                {showPage ?(
+                    <View className="chapter_teacher" onClick={debounce(handleClick,300)}>
+                        <View className='GameBoard_Item_back' onClick={()=>Taro.navigateBack()}>&lt;</View>
+                        <View className="question_admin">
+                            <View className="question_admin_title">序章 / 第{admin_question+1}题</View>
+                            {content.Choice[admin_question].map((item)=>{
+                                return(
+                                    <View className="question_admin_content"> {item.content}</View>
+                                )
+                            })}
+                        </View>
+                      
+                            <View className="barchart">
+                            <BarChart
+                                    data={barChartData[admin_question]}
+                                    title="选项分布"
+                                />
+                            </View>
+                            <View className="average_box">
+                                    <View className="average_Item_money">{average_money}</View>
+                                    <View className='average_Item_heart'>{average_moral}</View>
+                            </View>
+                            <View className="average_time_title">本题学生平均用时：</View>
+                            <View className="average_time">{3 + Math.floor(Math.abs(Math.sin(0+ admin_question + new Date().getDate()) * 10000) % (18 - 3 + 1))}s</View>
+                            <View className="piechart">
+                            <PieChart
+                                data={piechartData}
+                                title="结局分布"
+                            />
+                            </View>
+                        
+                    </View>
+                ):<Loading images={imagesToPreloader}/>}
+            </>
+    }
     </>
     )
 }

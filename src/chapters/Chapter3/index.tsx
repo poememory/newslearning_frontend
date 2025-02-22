@@ -1,6 +1,7 @@
 import ChapterComponent from "@/components/ChapterComponent";
 import { getContent } from './content';
 import {GlobalProvider} from "@/context/GlobalContext";
+import Taro from "@tarojs/taro";
 
 
 const imagesToPeloader: string[] = [

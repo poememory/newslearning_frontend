@@ -1,0 +1,92 @@
+.bubble-game-container {
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    background-image: url('https://m.qpic.cn/psc?/V538RWjT3LWaf01APMuH1IS43y3oRyH9/TmEUgtj9EK6.7V8ajmQrEAwPam2Yvy9FCV00MHW2vpUjhrBfLfEfnFV3LxYo*kZrQek3FrdhOm2U7UJD.x3roGpKpaRhTTyu.K.CJChT37g!/b&bo=1Qg4BAAAAAADZ6M!&rf=viewer_4');
+    background-size: 100% 100%;
+  }
+  .bubble_box{
+    width: 100vw;
+    height: 45vh;
+    position: absolute;
+    left: 0;
+    top: 17vh;
+    overflow:visible;
+  }
+  .bubble {
+    position: absolute;
+    width: 13vw;
+    height: 13vw;
+    background-image: url('https://m.qpic.cn/psc?/V538RWjT3LWaf01APMuH1IS43y3oRyH9/TmEUgtj9EK6.7V8ajmQrEAwPam2Yvy9FCV00MHW2vpXp1COih25oidjb2N7Y5F8Gr7UQ9Qalk1un1QLAoC01nUVtYPxfCabRnOF0HA1cTbg!/b&bo=WgQ4BAAAAAADB0A!&rf=viewer_4');
+    background-size: 100% 100%;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 16px;
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    display: flex;
+    flex-direction: column;
+  }
+  .bubble_title{
+    position: absolute;
+    left: 20vw;
+    top: 8vh;
+  }
+  .confirm{
+    width: 15vw;
+    height: 7vh;
+    position: absolute;
+    right: 4vw;
+    bottom: 8vh;
+    text-align: center;
+  }
+  .bubble-text {
+    color: white;
+    font-size: 1.5vw;
+    text-align: center;
+    padding: 5px;
+  }
+  
+  .score {
+    position: absolute;
+    top: 4vh;
+    left: 3vw;
+    font-size: 3vw;
+    color: white;
+    font-weight: bold;
+  }
+  
+  .end-screen {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
+    padding: 20px;
+    border-radius: 10px;
+  }
+  
+  .end-button {
+    background-color: #007bff;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  /* 浮动动画 */
+  @keyframes float {
+    0% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-10px);
+    }
+    100% {
+      transform: translateY(0);
+    }
+  }
+  

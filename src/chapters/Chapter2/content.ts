@@ -58,17 +58,20 @@ export const getContent = () => {
 
     const Choice=[
         [
-            {content:'上报领导，值班结束后回归常态新闻报道',gap:1},
-            {content:'上报领导，并在值班结束后主动追寻线索',gap:3},
+            {content:'A.上报领导，值班结束后回归常态新闻报道',gap:1},
+            {content:'B.上报领导，并在值班结束后主动追寻线索',gap:3},
         ],
         [
-            {content:'试图逃跑，先保证自己的安全',gap:1},
-            {content:'继续卧底，收集足够多的证据',gap:5},
+            {content:'A.试图逃跑，先保证自己的安全',gap:1},
+            {content:'B.继续卧底，收集足够多的证据',gap:5},
         ],
         [
-            {content:'先完成独家报道',gap:1},
-            {content:'先联系警方救人',gap:5},
+            {content:'A.先完成独家报道',gap:1},
+            {content:'B.先联系警方救人',gap:5},
         ]
     ]
-    return {Info,GapInfo,Dialog,Choice}
+    const certain=[
+
+    ]
+    return {Info,GapInfo,Dialog,Choice,certain}
 };
